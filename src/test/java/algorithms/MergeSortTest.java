@@ -23,9 +23,9 @@ public class MergeSortTest {
         MergeSort.mergeSort(empty);
         assertArrayEquals(new int[0], empty);
 
-        int[] one = new int[]{45};
+        int[] one = new int[]{7};
         MergeSort.mergeSort(one);
-        assertArrayEquals(new int[]{45}, one);
+        assertArrayEquals(new int[]{7}, one);
     }
 
     @Test
@@ -91,7 +91,9 @@ public class MergeSortTest {
         int n = 1024;
         int[] a = new int[n];
         Random rnd = new Random(7);
-        for (int i = 0; i < n; i++) a[i] = rnd.nextInt();
+        for (int i = 0; i < n; i++){
+            a[i] = rnd.nextInt();
+        }
 
         int[] expected = a.clone();
         Arrays.sort(expected);
