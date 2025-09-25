@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.metrics;
 
 /**
  * Immutable snapshot of metrics recorded during a single run.
@@ -8,7 +8,7 @@ package algorithms;
  *  - seed: RNG seed used
  *  - elapsedMs: elapsed milliseconds as measured by Metrics
  *  - comparisons: number of comparisons counted
- *  - swaps: number of swaps countedg
+ *  - swaps: number of swaps counted
  *  - maxDepth: maximum recursion depth observed
  *  - timestamp: wall-clock timestamp when the snapshot was taken
  */

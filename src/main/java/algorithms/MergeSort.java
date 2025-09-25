@@ -1,5 +1,7 @@
 package algorithms;
 
+import algorithms.metrics.Metrics;
+
 /**
  * MergeSort: reusable-buffer merge sort with insertion-sort cutoff and optional Metrics instrumentation.
  */

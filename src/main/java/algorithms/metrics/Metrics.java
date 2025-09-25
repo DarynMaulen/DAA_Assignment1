@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.metrics;
 
 import java.util.concurrent.atomic.AtomicLong;
 
