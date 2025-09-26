@@ -50,7 +50,6 @@ public final class ArrayUtils {
 
     /**
      * Check that an index belongs to array bounds.
-     *
      * @throws NullPointerException      if arr is null
      * @throws IndexOutOfBoundsException if index is outside [0, arr.length-1]
      */
