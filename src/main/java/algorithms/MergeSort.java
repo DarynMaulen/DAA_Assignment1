@@ -1,14 +1,13 @@
 package algorithms;
 
 import algorithms.metrics.Metrics;
+import algorithms.utils.SortUtils;
 
 /**
  * MergeSort: reusable-buffer merge sort with insertion-sort cutoff and optional Metrics instrumentation.
  */
 public final class MergeSort {
     public static final int DEFAULT_INSERTION_THRESHOLD = 16;
-
-    private MergeSort() {}
 
     /**
      * Public API: sort using default cutoff and no metrics.
@@ -34,7 +33,7 @@ public final class MergeSort {
      */
     public static void mergeSort(int[] arr, int insertionThreshold, Metrics metrics) {
         if (arr == null || arr.length < 2) return;
-        if (insertionThreshold < 1) insertionThreshold = DEFAULT_INSERTION_THRESHOLD;
+        insertionThreshold = SortUtils.normalizeCutOff(insertionThreshold, DEFAULT_INSERTION_THRESHOLD);
 
         if (metrics != null) metrics.start(); // overall timing start
 

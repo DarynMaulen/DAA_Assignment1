@@ -1,8 +1,9 @@
 package algorithms;
 
 import algorithms.metrics.Metrics;
-
-import java.util.concurrent.ThreadLocalRandom;
+import algorithms.utils.ArrayUtils;
+import algorithms.utils.PartitionUtils;
+import algorithms.utils.SortUtils;
 
 /**
  * QuickSort with:
@@ -14,8 +15,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public final class QuickSort {
     public static final int DEFAULT_INSERTION_THRESHOLD = 16;
 
-    private QuickSort() {}
-
     public static void quickSort(int[] arr) {
         quickSort(arr, DEFAULT_INSERTION_THRESHOLD, null);
     }
@@ -26,7 +25,7 @@ public final class QuickSort {
 
     public static void quickSort(int[] arr, int insertionThreshold, Metrics metrics) {
         if (arr == null || arr.length < 2) return;
-        if (insertionThreshold < 1) insertionThreshold = DEFAULT_INSERTION_THRESHOLD;
+        insertionThreshold = SortUtils.normalizeCutOff(insertionThreshold, DEFAULT_INSERTION_THRESHOLD);
 
         if (metrics != null) metrics.start();
         try {
@@ -51,10 +50,10 @@ public final class QuickSort {
             if (metrics != null) metrics.enter(); // track recursion depth
             try {
                 // randomized pivot
-                int pivotIndex = left + ThreadLocalRandom.current().nextInt(len);
-                swap(arr, pivotIndex, right, metrics); // move pivot to end
+                int pivotIndex = PartitionUtils.chooseRandomPivot(left, right);
+                ArrayUtils.swapUnchecked(arr, pivotIndex, right, metrics); // move pivot to end
 
-                int p = partitionLomuto(arr, left, right, metrics);
+                int p = PartitionUtils.partitionLomuto(arr, left, right, metrics);
 
                 int leftSize = p - left;
                 int rightSize = right - p;
@@ -71,21 +70,6 @@ public final class QuickSort {
                 if (metrics != null) metrics.exit();
             }
         }
-    }
-
-    /** Lomuto partition implementation. Pivot is at arr[right]. Returns final pivot index. */
-    private static int partitionLomuto(int[] arr, int left, int right, Metrics metrics) {
-        int pivot = arr[right];
-        int i = left;
-        for (int j = left; j < right; j++) {
-            if (metrics != null) metrics.addComparison();
-            if (arr[j] <= pivot) {
-                swap(arr, i, j, metrics);
-                i++;
-            }
-        }
-        swap(arr, i, right, metrics);
-        return i;
     }
 
     private static void insertionSort(int[] arr, int left, int right, Metrics metrics) {
