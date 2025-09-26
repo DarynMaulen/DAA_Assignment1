@@ -41,13 +41,6 @@ public final class ArrayUtils {
         swap(arr, i, j, null);
     }
 
-    public static void swapUnchecked(int[] arr, int i, int j, Metrics metrics) {
-        int tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
-        if (metrics != null) metrics.addSwap();
-    }
-
     /**
      * Null-check helper.
      */

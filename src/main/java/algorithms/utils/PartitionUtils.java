@@ -30,11 +30,11 @@ public final class PartitionUtils {
         for (int j = left; j < right; j++) {
             if (metrics != null) metrics.addComparison();
             if (arr[j] <= pivot) {
-                swapUnchecked(arr, i, j, metrics); // no inner checks
+                swap(arr, i, j, metrics); // no inner checks
                 i++;
             }
         }
-        swapUnchecked(arr, i, right, metrics);
+        swap(arr, i, right, metrics);
         return i;
     }
 
