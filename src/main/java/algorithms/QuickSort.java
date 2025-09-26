@@ -51,7 +51,7 @@ public final class QuickSort {
             try {
                 // randomized pivot
                 int pivotIndex = PartitionUtils.chooseRandomPivot(left, right);
-                ArrayUtils.swapUnchecked(arr, pivotIndex, right, metrics); // move pivot to end
+                ArrayUtils.swap(arr, pivotIndex, right, metrics); // move pivot to end
 
                 int p = PartitionUtils.partitionLomuto(arr, left, right, metrics);
 
