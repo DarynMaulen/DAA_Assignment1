@@ -6,7 +6,7 @@ import algorithms.utils.PartitionUtils;
 
 /**
  * Deterministic selection (median-of-medians, group size = 5).
- * Returns k-th smallest element (0-based).
+ * Returns k-th the smallest element (0-based).
  * Guarantees O(n) worst-case time by selecting a "median of medians" pivot.
  */
 public final class DeterministicSelect {
