@@ -1,5 +1,6 @@
 package algorithms.metrics;
 
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -126,7 +127,7 @@ public class Metrics {
         return new MetricsSnapshot(
                 algo,
                 n,
-                seed == null ? -1L : seed,
+                seed == null ? new Random().nextLong() : seed,
                 getElapsedMs(),
                 getComparisons(),
                 getSwaps(),

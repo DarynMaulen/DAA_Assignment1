@@ -71,8 +71,7 @@ public class MetricsCsvWriter {
         StringBuilder sb = new StringBuilder();
         sb.append(escape(s.algo())).append(SEP);
         sb.append(s.n()).append(SEP);
-        // seed: allow -1 to represent "no seed"
-        sb.append(s.seed() < 0 ? "" : s.seed()).append(SEP);
+        sb.append(Long.toUnsignedString(s.seed())).append(SEP);
         sb.append(String.format(Locale.ROOT, "%.3f", s.elapsedMs())).append(SEP);
         sb.append(s.comparisons()).append(SEP);
         sb.append(s.swaps()).append(SEP);
