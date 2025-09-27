@@ -30,7 +30,7 @@ public final class PartitionUtils {
         for (int j = left; j < right; j++) {
             if (metrics != null) metrics.addComparison();
             if (arr[j] <= pivot) {
-                swap(arr, i, j, metrics); // no inner checks
+                swap(arr, i, j, metrics);
                 i++;
             }
         }
@@ -46,7 +46,6 @@ public final class PartitionUtils {
     /**
      * Hoare partition scheme.
      * Returns an index j such that all elements <= j are <= pivot and > j are >= pivot.
-     * Note: caller must use returned j according to Hoare semantics.
      */
     public static int partitionHoare(int[] arr, int left, int right, Metrics metrics) {
         checkRange(arr, left, right);
