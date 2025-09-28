@@ -175,15 +175,17 @@ public final class CliConfig {
 
     /** Help text. */
     public static String usage() {
-        return "Usage:\n" +
-                "  --algorithms <merge,quick,select,closest,all>    algorithms to run (comma-separated)\n" +
-                "  --n <N|min:max[:step]>                    problem size or range\n" +
-                "  --repetitions <r>                                repetitions per size (default 3)\n" +
-                "  --seed <long>                             random seed (optional)\n" +
-                "  --cutoff <k>                              insertion-sort cutoff (default 16)\n" +
-                "  --csv <path>                              CSV output file (semicolon separated)\n" +
-                "  --append / --no-append                    append or overwrite CSV (default append)\n" +
-                "  --help                                show this message\n";
+        return """
+                Usage:
+                  --algorithms <merge,quick,select,closest,all>    algorithms to run (comma-separated)
+                  --n <N|min:max[:step]>                    problem size or range
+                  --repetitions <r>                                repetitions per size (default 3)
+                  --seed <long>                             random seed (optional)
+                  --cutoff <k>                              insertion-sort cutoff (default 16)
+                  --csv <path>                              CSV output file (semicolon separated)
+                  --append / --no-append                    append or overwrite CSV (default append)
+                  --help                                show this message
+                """;
     }
 
     /** Helper: get the next argument value or throw if missing. */
